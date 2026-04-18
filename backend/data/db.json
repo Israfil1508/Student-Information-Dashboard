@@ -1,0 +1,1841 @@
+{
+  "students": [
+    {
+      "id": "stu_1",
+      "firstName": "Ava",
+      "lastName": "Rahman",
+      "email": "ava.rahman@ate-students.org",
+      "avatarUrl": "https://api.dicebear.com/9.x/thumbs/svg?seed=AvaRahman",
+      "academicYear": "Freshman",
+      "major": "Computer Science",
+      "gpa": 2.47,
+      "enrollmentStatus": "Full-time",
+      "creditsCompleted": 24,
+      "creditsRequired": 120,
+      "expectedGraduation": "2029-06-15",
+      "demographics": {
+        "firstGeneration": true,
+        "lowIncome": false,
+        "underrepresentedMinority": true
+      },
+      "assignedMentorId": "mnt_1",
+      "gpaHistory": [
+        {
+          "term": "Fall 2024",
+          "gpa": 2.23,
+          "recordedAt": "2024-10-07T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2025",
+          "gpa": 2.31,
+          "recordedAt": "2025-04-10T10:00:00.000Z"
+        },
+        {
+          "term": "Fall 2025",
+          "gpa": 2.39,
+          "recordedAt": "2025-10-12T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2026",
+          "gpa": 2.47,
+          "recordedAt": "2026-03-31T10:00:00.000Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Part-time",
+          "changedAt": "2026-03-10T10:00:00.000Z",
+          "note": "Initial status imported from legacy records."
+        },
+        {
+          "status": "Full-time",
+          "changedAt": "2026-04-18T19:22:13.881Z",
+          "note": "Status updated by counselor"
+        }
+      ],
+      "createdAt": "2025-08-10T10:00:00.000Z",
+      "updatedAt": "2026-04-18T19:22:13.882Z"
+    },
+    {
+      "id": "stu_3",
+      "firstName": "Mia",
+      "lastName": "Karim",
+      "email": "mia.karim@ate-students.org",
+      "avatarUrl": "https://api.dicebear.com/9.x/thumbs/svg?seed=MiaKarim",
+      "academicYear": "Junior",
+      "major": "Public Health",
+      "gpa": 3.67,
+      "enrollmentStatus": "Full-time",
+      "creditsCompleted": 90,
+      "creditsRequired": 120,
+      "expectedGraduation": "2027-06-15",
+      "demographics": {
+        "firstGeneration": true,
+        "lowIncome": true,
+        "underrepresentedMinority": true
+      },
+      "assignedMentorId": "mnt_3",
+      "gpaHistory": [
+        {
+          "term": "Fall 2024",
+          "gpa": 3.43,
+          "recordedAt": "2024-10-09T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2025",
+          "gpa": 3.51,
+          "recordedAt": "2025-04-12T10:00:00.000Z"
+        },
+        {
+          "term": "Fall 2025",
+          "gpa": 3.59,
+          "recordedAt": "2025-10-14T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2026",
+          "gpa": 3.67,
+          "recordedAt": "2026-04-02T10:00:00.000Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Full-time",
+          "changedAt": "2026-02-10T10:00:00.000Z",
+          "note": "Initial status imported from legacy records."
+        }
+      ],
+      "createdAt": "2025-06-10T10:00:00.000Z",
+      "updatedAt": "2026-02-10T10:00:00.000Z"
+    },
+    {
+      "id": "stu_4",
+      "firstName": "Noah",
+      "lastName": "Ahmed",
+      "email": "noah.ahmed@ate-students.org",
+      "avatarUrl": "https://api.dicebear.com/9.x/thumbs/svg?seed=NoahAhmed",
+      "academicYear": "Senior",
+      "major": "Business Administration",
+      "gpa": 2.83,
+      "enrollmentStatus": "Full-time",
+      "creditsCompleted": 118,
+      "creditsRequired": 120,
+      "expectedGraduation": "2026-06-15",
+      "demographics": {
+        "firstGeneration": false,
+        "lowIncome": false,
+        "underrepresentedMinority": true
+      },
+      "assignedMentorId": "mnt_4",
+      "gpaHistory": [
+        {
+          "term": "Fall 2024",
+          "gpa": 2.59,
+          "recordedAt": "2024-10-10T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2025",
+          "gpa": 2.67,
+          "recordedAt": "2025-04-13T10:00:00.000Z"
+        },
+        {
+          "term": "Fall 2025",
+          "gpa": 2.75,
+          "recordedAt": "2025-10-15T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2026",
+          "gpa": 2.83,
+          "recordedAt": "2026-04-03T10:00:00.000Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Full-time",
+          "changedAt": "2026-01-10T10:00:00.000Z",
+          "note": "Initial status imported from legacy records."
+        }
+      ],
+      "createdAt": "2025-05-10T10:00:00.000Z",
+      "updatedAt": "2026-01-10T10:00:00.000Z"
+    },
+    {
+      "id": "stu_6",
+      "firstName": "Ethan",
+      "lastName": "Sarker",
+      "email": "ethan.sarker@ate-students.org",
+      "avatarUrl": "https://api.dicebear.com/9.x/thumbs/svg?seed=EthanSarker",
+      "academicYear": "Sophomore",
+      "major": "Environmental Science",
+      "gpa": 2.59,
+      "enrollmentStatus": "Full-time",
+      "creditsCompleted": 54,
+      "creditsRequired": 120,
+      "expectedGraduation": "2028-06-15",
+      "demographics": {
+        "firstGeneration": false,
+        "lowIncome": true,
+        "underrepresentedMinority": false
+      },
+      "assignedMentorId": "mnt_1",
+      "gpaHistory": [
+        {
+          "term": "Fall 2024",
+          "gpa": 2.35,
+          "recordedAt": "2024-10-12T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2025",
+          "gpa": 2.43,
+          "recordedAt": "2025-04-15T10:00:00.000Z"
+        },
+        {
+          "term": "Fall 2025",
+          "gpa": 2.51,
+          "recordedAt": "2025-10-17T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2026",
+          "gpa": 2.59,
+          "recordedAt": "2026-04-05T10:00:00.000Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Full-time",
+          "changedAt": "2025-11-10T10:00:00.000Z",
+          "note": "Initial status imported from legacy records."
+        }
+      ],
+      "createdAt": "2025-03-10T10:00:00.000Z",
+      "updatedAt": "2025-11-10T10:00:00.000Z"
+    },
+    {
+      "id": "stu_7",
+      "firstName": "Olivia",
+      "lastName": "Nahar",
+      "email": "olivia.nahar@ate-students.org",
+      "avatarUrl": "https://api.dicebear.com/9.x/thumbs/svg?seed=OliviaNahar",
+      "academicYear": "Junior",
+      "major": "Mechanical Engineering",
+      "gpa": 3.19,
+      "enrollmentStatus": "Full-time",
+      "creditsCompleted": 88,
+      "creditsRequired": 120,
+      "expectedGraduation": "2027-06-15",
+      "demographics": {
+        "firstGeneration": true,
+        "lowIncome": false,
+        "underrepresentedMinority": true
+      },
+      "assignedMentorId": "mnt_2",
+      "gpaHistory": [
+        {
+          "term": "Fall 2024",
+          "gpa": 2.95,
+          "recordedAt": "2024-10-13T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2025",
+          "gpa": 3.03,
+          "recordedAt": "2025-04-16T10:00:00.000Z"
+        },
+        {
+          "term": "Fall 2025",
+          "gpa": 3.11,
+          "recordedAt": "2025-10-18T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2026",
+          "gpa": 3.19,
+          "recordedAt": "2026-04-06T10:00:00.000Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Full-time",
+          "changedAt": "2026-03-10T10:00:00.000Z",
+          "note": "Initial status imported from legacy records."
+        }
+      ],
+      "createdAt": "2025-02-10T10:00:00.000Z",
+      "updatedAt": "2026-03-10T10:00:00.000Z"
+    },
+    {
+      "id": "stu_8",
+      "firstName": "Lucas",
+      "lastName": "Kabir",
+      "email": "lucas.kabir@ate-students.org",
+      "avatarUrl": "https://api.dicebear.com/9.x/thumbs/svg?seed=LucasKabir",
+      "academicYear": "Senior",
+      "major": "Data Science",
+      "gpa": 3.79,
+      "enrollmentStatus": "Full-time",
+      "creditsCompleted": 116,
+      "creditsRequired": 120,
+      "expectedGraduation": "2026-06-15",
+      "demographics": {
+        "firstGeneration": false,
+        "lowIncome": true,
+        "underrepresentedMinority": true
+      },
+      "assignedMentorId": "mnt_3",
+      "gpaHistory": [
+        {
+          "term": "Fall 2024",
+          "gpa": 3.55,
+          "recordedAt": "2024-10-14T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2025",
+          "gpa": 3.63,
+          "recordedAt": "2025-04-17T10:00:00.000Z"
+        },
+        {
+          "term": "Fall 2025",
+          "gpa": 3.71,
+          "recordedAt": "2025-10-19T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2026",
+          "gpa": 3.79,
+          "recordedAt": "2026-04-07T10:00:00.000Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Full-time",
+          "changedAt": "2026-03-10T10:00:00.000Z",
+          "note": "Initial status imported from legacy records."
+        }
+      ],
+      "createdAt": "2025-01-10T10:00:00.000Z",
+      "updatedAt": "2026-03-10T10:00:00.000Z"
+    },
+    {
+      "id": "stu_9",
+      "firstName": "Amelia",
+      "lastName": "Uddin",
+      "email": "amelia.uddin@ate-students.org",
+      "avatarUrl": "https://api.dicebear.com/9.x/thumbs/svg?seed=AmeliaUddin",
+      "academicYear": "Freshman",
+      "major": "Computer Science",
+      "gpa": 2.95,
+      "enrollmentStatus": "Part-time",
+      "creditsCompleted": 30,
+      "creditsRequired": 120,
+      "expectedGraduation": "2029-06-15",
+      "demographics": {
+        "firstGeneration": true,
+        "lowIncome": true,
+        "underrepresentedMinority": true
+      },
+      "assignedMentorId": "mnt_4",
+      "gpaHistory": [
+        {
+          "term": "Fall 2024",
+          "gpa": 2.71,
+          "recordedAt": "2024-10-15T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2025",
+          "gpa": 2.79,
+          "recordedAt": "2025-04-18T10:00:00.000Z"
+        },
+        {
+          "term": "Fall 2025",
+          "gpa": 2.87,
+          "recordedAt": "2025-10-20T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2026",
+          "gpa": 2.95,
+          "recordedAt": "2026-04-08T10:00:00.000Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Part-time",
+          "changedAt": "2026-02-10T10:00:00.000Z",
+          "note": "Initial status imported from legacy records."
+        }
+      ],
+      "createdAt": "2024-12-10T10:00:00.000Z",
+      "updatedAt": "2026-02-10T10:00:00.000Z"
+    },
+    {
+      "id": "stu_10",
+      "firstName": "Mason",
+      "lastName": "Khan",
+      "email": "mason.khan@ate-students.org",
+      "avatarUrl": "https://api.dicebear.com/9.x/thumbs/svg?seed=MasonKhan",
+      "academicYear": "Sophomore",
+      "major": "Electrical Engineering",
+      "gpa": 3.55,
+      "enrollmentStatus": "Full-time",
+      "creditsCompleted": 62,
+      "creditsRequired": 120,
+      "expectedGraduation": "2028-06-15",
+      "demographics": {
+        "firstGeneration": false,
+        "lowIncome": false,
+        "underrepresentedMinority": false
+      },
+      "assignedMentorId": "mnt_5",
+      "gpaHistory": [
+        {
+          "term": "Fall 2024",
+          "gpa": 3.31,
+          "recordedAt": "2024-10-16T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2025",
+          "gpa": 3.39,
+          "recordedAt": "2025-04-19T10:00:00.000Z"
+        },
+        {
+          "term": "Fall 2025",
+          "gpa": 3.47,
+          "recordedAt": "2025-10-21T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2026",
+          "gpa": 3.55,
+          "recordedAt": "2026-04-09T10:00:00.000Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Full-time",
+          "changedAt": "2026-01-10T10:00:00.000Z",
+          "note": "Initial status imported from legacy records."
+        }
+      ],
+      "createdAt": "2024-11-10T10:00:00.000Z",
+      "updatedAt": "2026-01-10T10:00:00.000Z"
+    },
+    {
+      "id": "stu_11",
+      "firstName": "Harper",
+      "lastName": "Farzana",
+      "email": "harper.farzana@ate-students.org",
+      "avatarUrl": "https://api.dicebear.com/9.x/thumbs/svg?seed=HarperFarzana",
+      "academicYear": "Junior",
+      "major": "Public Health",
+      "gpa": 2.71,
+      "enrollmentStatus": "Full-time",
+      "creditsCompleted": 86,
+      "creditsRequired": 120,
+      "expectedGraduation": "2027-06-15",
+      "demographics": {
+        "firstGeneration": true,
+        "lowIncome": true,
+        "underrepresentedMinority": true
+      },
+      "assignedMentorId": "mnt_1",
+      "gpaHistory": [
+        {
+          "term": "Fall 2024",
+          "gpa": 2.47,
+          "recordedAt": "2024-10-17T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2025",
+          "gpa": 2.55,
+          "recordedAt": "2025-04-20T10:00:00.000Z"
+        },
+        {
+          "term": "Fall 2025",
+          "gpa": 2.63,
+          "recordedAt": "2025-10-22T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2026",
+          "gpa": 2.71,
+          "recordedAt": "2026-04-10T10:00:00.000Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Full-time",
+          "changedAt": "2025-12-10T10:00:00.000Z",
+          "note": "Initial status imported from legacy records."
+        }
+      ],
+      "createdAt": "2024-10-10T10:00:00.000Z",
+      "updatedAt": "2025-12-10T10:00:00.000Z"
+    },
+    {
+      "id": "stu_12",
+      "firstName": "Elijah",
+      "lastName": "Alam",
+      "email": "elijah.alam@ate-students.org",
+      "avatarUrl": "https://api.dicebear.com/9.x/thumbs/svg?seed=ElijahAlam",
+      "academicYear": "Senior",
+      "major": "Business Administration",
+      "gpa": 3.31,
+      "enrollmentStatus": "Full-time",
+      "creditsCompleted": 114,
+      "creditsRequired": 120,
+      "expectedGraduation": "2026-06-15",
+      "demographics": {
+        "firstGeneration": false,
+        "lowIncome": true,
+        "underrepresentedMinority": true
+      },
+      "assignedMentorId": "mnt_2",
+      "gpaHistory": [
+        {
+          "term": "Fall 2024",
+          "gpa": 3.07,
+          "recordedAt": "2024-10-18T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2025",
+          "gpa": 3.15,
+          "recordedAt": "2025-04-21T10:00:00.000Z"
+        },
+        {
+          "term": "Fall 2025",
+          "gpa": 3.23,
+          "recordedAt": "2025-10-23T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2026",
+          "gpa": 3.31,
+          "recordedAt": "2026-04-11T10:00:00.000Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Full-time",
+          "changedAt": "2025-11-10T10:00:00.000Z",
+          "note": "Initial status imported from legacy records."
+        }
+      ],
+      "createdAt": "2024-09-10T10:00:00.000Z",
+      "updatedAt": "2025-11-10T10:00:00.000Z"
+    },
+    {
+      "id": "stu_13",
+      "firstName": "Aria",
+      "lastName": "Sultana",
+      "email": "aria.sultana@ate-students.org",
+      "avatarUrl": "https://api.dicebear.com/9.x/thumbs/svg?seed=AriaSultana",
+      "academicYear": "Freshman",
+      "major": "Economics",
+      "gpa": 2.47,
+      "enrollmentStatus": "Part-time",
+      "creditsCompleted": 28,
+      "creditsRequired": 120,
+      "expectedGraduation": "2029-06-15",
+      "demographics": {
+        "firstGeneration": true,
+        "lowIncome": false,
+        "underrepresentedMinority": true
+      },
+      "assignedMentorId": "mnt_3",
+      "gpaHistory": [
+        {
+          "term": "Fall 2024",
+          "gpa": 2.23,
+          "recordedAt": "2024-10-19T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2025",
+          "gpa": 2.31,
+          "recordedAt": "2025-04-22T10:00:00.000Z"
+        },
+        {
+          "term": "Fall 2025",
+          "gpa": 2.39,
+          "recordedAt": "2025-10-24T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2026",
+          "gpa": 2.47,
+          "recordedAt": "2026-04-12T10:00:00.000Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Part-time",
+          "changedAt": "2026-03-10T10:00:00.000Z",
+          "note": "Initial status imported from legacy records."
+        }
+      ],
+      "createdAt": "2024-08-10T10:00:00.000Z",
+      "updatedAt": "2026-03-10T10:00:00.000Z"
+    },
+    {
+      "id": "stu_14",
+      "firstName": "James",
+      "lastName": "Hasan",
+      "email": "james.hasan@ate-students.org",
+      "avatarUrl": "https://api.dicebear.com/9.x/thumbs/svg?seed=JamesHasan",
+      "academicYear": "Sophomore",
+      "major": "Environmental Science",
+      "gpa": 3.07,
+      "enrollmentStatus": "Leave of Absence",
+      "creditsCompleted": 50,
+      "creditsRequired": 120,
+      "expectedGraduation": "2028-06-15",
+      "demographics": {
+        "firstGeneration": false,
+        "lowIncome": true,
+        "underrepresentedMinority": false
+      },
+      "assignedMentorId": "mnt_4",
+      "gpaHistory": [
+        {
+          "term": "Fall 2024",
+          "gpa": 2.83,
+          "recordedAt": "2024-10-20T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2025",
+          "gpa": 2.91,
+          "recordedAt": "2025-04-23T10:00:00.000Z"
+        },
+        {
+          "term": "Fall 2025",
+          "gpa": 2.99,
+          "recordedAt": "2025-10-25T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2026",
+          "gpa": 3.07,
+          "recordedAt": "2026-04-13T10:00:00.000Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Leave of Absence",
+          "changedAt": "2026-03-10T10:00:00.000Z",
+          "note": "Initial status imported from legacy records."
+        }
+      ],
+      "createdAt": "2024-07-10T10:00:00.000Z",
+      "updatedAt": "2026-03-10T10:00:00.000Z"
+    },
+    {
+      "id": "stu_15",
+      "firstName": "Layla",
+      "lastName": "Begum",
+      "email": "layla.begum@ate-students.org",
+      "avatarUrl": "https://api.dicebear.com/9.x/thumbs/svg?seed=LaylaBegum",
+      "academicYear": "Junior",
+      "major": "Mechanical Engineering",
+      "gpa": 3.67,
+      "enrollmentStatus": "Graduated",
+      "creditsCompleted": 120,
+      "creditsRequired": 120,
+      "expectedGraduation": "2025-12-20",
+      "demographics": {
+        "firstGeneration": true,
+        "lowIncome": true,
+        "underrepresentedMinority": true
+      },
+      "assignedMentorId": "mnt_5",
+      "gpaHistory": [
+        {
+          "term": "Fall 2024",
+          "gpa": 3.43,
+          "recordedAt": "2024-10-21T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2025",
+          "gpa": 3.51,
+          "recordedAt": "2025-04-24T10:00:00.000Z"
+        },
+        {
+          "term": "Fall 2025",
+          "gpa": 3.59,
+          "recordedAt": "2025-10-26T10:00:00.000Z"
+        },
+        {
+          "term": "Spring 2026",
+          "gpa": 3.67,
+          "recordedAt": "2026-04-14T10:00:00.000Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Graduated",
+          "changedAt": "2026-02-10T10:00:00.000Z",
+          "note": "Initial status imported from legacy records."
+        }
+      ],
+      "createdAt": "2024-06-10T10:00:00.000Z",
+      "updatedAt": "2026-02-10T10:00:00.000Z"
+    },
+    {
+      "id": "stu_lRo9G4Q1tU",
+      "firstName": "av",
+      "lastName": "a",
+      "email": "av@gmail.com",
+      "avatarUrl": "https://www.google.com",
+      "academicYear": "Sophomore",
+      "major": "CS",
+      "gpa": 3.2,
+      "enrollmentStatus": "Part-time",
+      "creditsCompleted": 80,
+      "creditsRequired": 120,
+      "expectedGraduation": "2026-10-16",
+      "demographics": {
+        "firstGeneration": false,
+        "lowIncome": false,
+        "underrepresentedMinority": true
+      },
+      "assignedMentorId": "mnt_4",
+      "gpaHistory": [
+        {
+          "term": "Current",
+          "gpa": 3.2,
+          "recordedAt": "2026-04-18T19:17:57.525Z"
+        }
+      ],
+      "enrollmentStatusHistory": [
+        {
+          "status": "Part-time",
+          "changedAt": "2026-04-18T19:17:57.525Z",
+          "note": "Student profile created."
+        }
+      ],
+      "createdAt": "2026-04-18T19:17:57.525Z",
+      "updatedAt": "2026-04-18T19:17:57.525Z"
+    }
+  ],
+  "mentors": [
+    {
+      "id": "mnt_1",
+      "name": "Daniela Pierce",
+      "title": "Senior Product Manager",
+      "company": "Northbridge Labs",
+      "expertise": [
+        "Career Planning",
+        "Interview Prep",
+        "Product Management"
+      ],
+      "email": "daniela.pierce@northbridgelabs.org",
+      "bio": "Supports first-generation students entering product and strategy roles.",
+      "maxMentees": 5,
+      "createdAt": "2025-06-10T10:00:00.000Z",
+      "updatedAt": "2025-06-10T10:00:00.000Z"
+    },
+    {
+      "id": "mnt_2",
+      "name": "Rezaul Islam",
+      "title": "Software Architect",
+      "company": "Delta Systems",
+      "expertise": [
+        "Backend Engineering",
+        "System Design",
+        "Open Source"
+      ],
+      "email": "rezaul.islam@deltasystems.org",
+      "bio": "Guides students in practical engineering skills and portfolio building.",
+      "maxMentees": 6,
+      "createdAt": "2025-05-10T10:00:00.000Z",
+      "updatedAt": "2025-05-10T10:00:00.000Z"
+    },
+    {
+      "id": "mnt_3",
+      "name": "Tanya Carter",
+      "title": "Research Scientist",
+      "company": "Global Health Collective",
+      "expertise": [
+        "Research Methods",
+        "Public Health",
+        "Graduate School"
+      ],
+      "email": "tanya.carter@ghcollective.org",
+      "bio": "Mentors students pursuing research and public impact careers.",
+      "maxMentees": 4,
+      "createdAt": "2025-04-10T10:00:00.000Z",
+      "updatedAt": "2025-04-10T10:00:00.000Z"
+    },
+    {
+      "id": "mnt_4",
+      "name": "Ibrahim Malik",
+      "title": "Finance Director",
+      "company": "BrightPath Capital",
+      "expertise": [
+        "Scholarship Strategy",
+        "Financial Planning",
+        "Analytics"
+      ],
+      "email": "ibrahim.malik@brightpathcap.org",
+      "bio": "Helps students build funding roadmaps and long-term financial resilience.",
+      "maxMentees": 5,
+      "createdAt": "2025-03-10T10:00:00.000Z",
+      "updatedAt": "2025-03-10T10:00:00.000Z"
+    },
+    {
+      "id": "mnt_5",
+      "name": "Nadia Flores",
+      "title": "Community Programs Lead",
+      "company": "Education Forward",
+      "expertise": [
+        "Leadership",
+        "Community Impact",
+        "Networking"
+      ],
+      "email": "nadia.flores@educationforward.org",
+      "bio": "Works with students on leadership habits and support systems.",
+      "maxMentees": 5,
+      "createdAt": "2025-02-10T10:00:00.000Z",
+      "updatedAt": "2025-02-10T10:00:00.000Z"
+    }
+  ],
+  "scholarships": [
+    {
+      "id": "sch_1",
+      "studentId": "stu_1",
+      "name": "Computer Achievement Grant 1",
+      "provider": "Future Scholars Fund",
+      "amount": 2000,
+      "currency": "USD",
+      "status": "Researching",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2026-03-21T10:00:00.000Z",
+          "note": "Opportunity identified"
+        }
+      ],
+      "deadline": "2026-04-20T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter",
+        "Essay"
+      ],
+      "essayRequired": true,
+      "essaySubmitted": false,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "createdAt": "2026-03-21T10:00:00.000Z",
+      "updatedAt": "2026-04-10T10:00:00.000Z"
+    },
+    {
+      "id": "sch_3",
+      "studentId": "stu_3",
+      "name": "Public Achievement Grant 3",
+      "provider": "Future Scholars Fund",
+      "amount": 3500,
+      "currency": "USD",
+      "status": "Interview",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2026-02-27T10:00:00.000Z",
+          "note": "Opportunity identified"
+        },
+        {
+          "status": "Interview",
+          "changedAt": "2026-04-08T10:00:00.000Z",
+          "note": "Status updated to Interview"
+        }
+      ],
+      "deadline": "2026-05-02T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter",
+        "Essay"
+      ],
+      "essayRequired": true,
+      "essaySubmitted": true,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "dateApplied": "2026-04-03T10:00:00.000Z",
+      "createdAt": "2026-02-27T10:00:00.000Z",
+      "updatedAt": "2026-04-08T10:00:00.000Z"
+    },
+    {
+      "id": "sch_4",
+      "studentId": "stu_4",
+      "name": "Business Achievement Grant 4",
+      "provider": "Bridge to Success Foundation",
+      "amount": 4250,
+      "currency": "USD",
+      "status": "Awarded",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2026-02-16T10:00:00.000Z",
+          "note": "Opportunity identified"
+        },
+        {
+          "status": "Awarded",
+          "changedAt": "2026-04-07T10:00:00.000Z",
+          "note": "Status updated to Awarded"
+        }
+      ],
+      "deadline": "2026-05-08T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter"
+      ],
+      "essayRequired": false,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "dateApplied": "2026-04-02T10:00:00.000Z",
+      "createdAt": "2026-02-16T10:00:00.000Z",
+      "updatedAt": "2026-04-07T10:00:00.000Z"
+    },
+    {
+      "id": "sch_6",
+      "studentId": "stu_6",
+      "name": "Environmental Achievement Grant 6",
+      "provider": "Bridge to Success Foundation",
+      "amount": 5750,
+      "currency": "USD",
+      "status": "Researching",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2026-01-25T10:00:00.000Z",
+          "note": "Opportunity identified"
+        }
+      ],
+      "deadline": "2026-05-20T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter"
+      ],
+      "essayRequired": false,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "createdAt": "2026-01-25T10:00:00.000Z",
+      "updatedAt": "2026-04-05T10:00:00.000Z"
+    },
+    {
+      "id": "sch_7",
+      "studentId": "stu_7",
+      "name": "Mechanical Achievement Grant 7",
+      "provider": "Future Scholars Fund",
+      "amount": 2000,
+      "currency": "USD",
+      "status": "Applied",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2026-01-14T10:00:00.000Z",
+          "note": "Opportunity identified"
+        },
+        {
+          "status": "Applied",
+          "changedAt": "2026-04-04T10:00:00.000Z",
+          "note": "Status updated to Applied"
+        }
+      ],
+      "deadline": "2026-05-26T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter",
+        "Essay"
+      ],
+      "essayRequired": true,
+      "essaySubmitted": false,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "dateApplied": "2026-03-30T10:00:00.000Z",
+      "createdAt": "2026-01-14T10:00:00.000Z",
+      "updatedAt": "2026-04-04T10:00:00.000Z"
+    },
+    {
+      "id": "sch_8",
+      "studentId": "stu_8",
+      "name": "Data Achievement Grant 8",
+      "provider": "Bridge to Success Foundation",
+      "amount": 2750,
+      "currency": "USD",
+      "status": "Interview",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2026-01-03T10:00:00.000Z",
+          "note": "Opportunity identified"
+        },
+        {
+          "status": "Interview",
+          "changedAt": "2026-04-03T10:00:00.000Z",
+          "note": "Status updated to Interview"
+        }
+      ],
+      "deadline": "2026-06-01T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter"
+      ],
+      "essayRequired": false,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "dateApplied": "2026-03-29T10:00:00.000Z",
+      "createdAt": "2026-01-03T10:00:00.000Z",
+      "updatedAt": "2026-04-10T10:00:00.000Z"
+    },
+    {
+      "id": "sch_9",
+      "studentId": "stu_9",
+      "name": "Computer Achievement Grant 9",
+      "provider": "Future Scholars Fund",
+      "amount": 3500,
+      "currency": "USD",
+      "status": "Awarded",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2025-12-23T10:00:00.000Z",
+          "note": "Opportunity identified"
+        },
+        {
+          "status": "Awarded",
+          "changedAt": "2026-04-02T10:00:00.000Z",
+          "note": "Status updated to Awarded"
+        }
+      ],
+      "deadline": "2026-06-07T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter",
+        "Essay"
+      ],
+      "essayRequired": true,
+      "essaySubmitted": true,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "dateApplied": "2026-03-28T10:00:00.000Z",
+      "createdAt": "2025-12-23T10:00:00.000Z",
+      "updatedAt": "2026-04-09T10:00:00.000Z"
+    },
+    {
+      "id": "sch_10",
+      "studentId": "stu_10",
+      "name": "Electrical Achievement Grant 10",
+      "provider": "Bridge to Success Foundation",
+      "amount": 4250,
+      "currency": "USD",
+      "status": "Rejected",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2025-12-12T10:00:00.000Z",
+          "note": "Opportunity identified"
+        },
+        {
+          "status": "Rejected",
+          "changedAt": "2026-04-10T10:00:00.000Z",
+          "note": "Status updated to Rejected"
+        }
+      ],
+      "deadline": "2026-06-13T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter"
+      ],
+      "essayRequired": false,
+      "notes": "Reviewer requested stronger extracurricular evidence.",
+      "dateApplied": "2026-03-27T10:00:00.000Z",
+      "createdAt": "2025-12-12T10:00:00.000Z",
+      "updatedAt": "2026-04-08T10:00:00.000Z"
+    },
+    {
+      "id": "sch_11",
+      "studentId": "stu_11",
+      "name": "Public Achievement Grant 11",
+      "provider": "Future Scholars Fund",
+      "amount": 5000,
+      "currency": "USD",
+      "status": "Researching",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2025-12-01T10:00:00.000Z",
+          "note": "Opportunity identified"
+        }
+      ],
+      "deadline": "2026-06-19T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter",
+        "Essay"
+      ],
+      "essayRequired": true,
+      "essaySubmitted": true,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "createdAt": "2025-12-01T10:00:00.000Z",
+      "updatedAt": "2026-04-07T10:00:00.000Z"
+    },
+    {
+      "id": "sch_12",
+      "studentId": "stu_12",
+      "name": "Business Achievement Grant 12",
+      "provider": "Bridge to Success Foundation",
+      "amount": 5750,
+      "currency": "USD",
+      "status": "Applied",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2025-11-20T10:00:00.000Z",
+          "note": "Opportunity identified"
+        },
+        {
+          "status": "Applied",
+          "changedAt": "2026-04-08T10:00:00.000Z",
+          "note": "Status updated to Applied"
+        }
+      ],
+      "deadline": "2026-06-25T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter"
+      ],
+      "essayRequired": false,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "dateApplied": "2026-03-25T10:00:00.000Z",
+      "createdAt": "2025-11-20T10:00:00.000Z",
+      "updatedAt": "2026-04-06T10:00:00.000Z"
+    },
+    {
+      "id": "sch_13",
+      "studentId": "stu_13",
+      "name": "Economics Achievement Grant 13",
+      "provider": "Future Scholars Fund",
+      "amount": 2000,
+      "currency": "USD",
+      "status": "Interview",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2025-11-09T10:00:00.000Z",
+          "note": "Opportunity identified"
+        },
+        {
+          "status": "Interview",
+          "changedAt": "2026-04-07T10:00:00.000Z",
+          "note": "Status updated to Interview"
+        }
+      ],
+      "deadline": "2026-07-01T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter",
+        "Essay"
+      ],
+      "essayRequired": true,
+      "essaySubmitted": false,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "dateApplied": "2026-03-24T10:00:00.000Z",
+      "createdAt": "2025-11-09T10:00:00.000Z",
+      "updatedAt": "2026-04-05T10:00:00.000Z"
+    },
+    {
+      "id": "sch_14",
+      "studentId": "stu_14",
+      "name": "Environmental Achievement Grant 14",
+      "provider": "Bridge to Success Foundation",
+      "amount": 2750,
+      "currency": "USD",
+      "status": "Awarded",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2025-10-29T10:00:00.000Z",
+          "note": "Opportunity identified"
+        },
+        {
+          "status": "Awarded",
+          "changedAt": "2026-04-06T10:00:00.000Z",
+          "note": "Status updated to Awarded"
+        }
+      ],
+      "deadline": "2026-07-07T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter"
+      ],
+      "essayRequired": false,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "dateApplied": "2026-03-23T10:00:00.000Z",
+      "createdAt": "2025-10-29T10:00:00.000Z",
+      "updatedAt": "2026-04-04T10:00:00.000Z"
+    },
+    {
+      "id": "sch_15",
+      "studentId": "stu_15",
+      "name": "Mechanical Achievement Grant 15",
+      "provider": "Future Scholars Fund",
+      "amount": 3500,
+      "currency": "USD",
+      "status": "Rejected",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2025-10-18T10:00:00.000Z",
+          "note": "Opportunity identified"
+        },
+        {
+          "status": "Rejected",
+          "changedAt": "2026-04-05T10:00:00.000Z",
+          "note": "Status updated to Rejected"
+        }
+      ],
+      "deadline": "2026-07-13T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter",
+        "Essay"
+      ],
+      "essayRequired": true,
+      "essaySubmitted": true,
+      "notes": "Reviewer requested stronger extracurricular evidence.",
+      "dateApplied": "2026-03-22T10:00:00.000Z",
+      "createdAt": "2025-10-18T10:00:00.000Z",
+      "updatedAt": "2026-04-10T10:00:00.000Z"
+    },
+    {
+      "id": "sch_16",
+      "studentId": "stu_1",
+      "name": "Computer Achievement Grant 16",
+      "provider": "Bridge to Success Foundation",
+      "amount": 4250,
+      "currency": "USD",
+      "status": "Researching",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2025-10-07T10:00:00.000Z",
+          "note": "Opportunity identified"
+        }
+      ],
+      "deadline": "2026-07-19T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter"
+      ],
+      "essayRequired": false,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "createdAt": "2025-10-07T10:00:00.000Z",
+      "updatedAt": "2026-04-09T10:00:00.000Z"
+    },
+    {
+      "id": "sch_18",
+      "studentId": "stu_3",
+      "name": "Public Achievement Grant 18",
+      "provider": "Bridge to Success Foundation",
+      "amount": 5750,
+      "currency": "USD",
+      "status": "Interview",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2025-09-15T10:00:00.000Z",
+          "note": "Opportunity identified"
+        },
+        {
+          "status": "Interview",
+          "changedAt": "2026-04-02T10:00:00.000Z",
+          "note": "Status updated to Interview"
+        }
+      ],
+      "deadline": "2026-07-31T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter"
+      ],
+      "essayRequired": false,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "dateApplied": "2026-04-03T10:00:00.000Z",
+      "createdAt": "2025-09-15T10:00:00.000Z",
+      "updatedAt": "2026-04-07T10:00:00.000Z"
+    },
+    {
+      "id": "sch_19",
+      "studentId": "stu_4",
+      "name": "Business Achievement Grant 19",
+      "provider": "Future Scholars Fund",
+      "amount": 2000,
+      "currency": "USD",
+      "status": "Awarded",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2025-09-04T10:00:00.000Z",
+          "note": "Opportunity identified"
+        },
+        {
+          "status": "Awarded",
+          "changedAt": "2026-04-10T10:00:00.000Z",
+          "note": "Status updated to Awarded"
+        }
+      ],
+      "deadline": "2026-08-06T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter",
+        "Essay"
+      ],
+      "essayRequired": true,
+      "essaySubmitted": false,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "dateApplied": "2026-04-02T10:00:00.000Z",
+      "createdAt": "2025-09-04T10:00:00.000Z",
+      "updatedAt": "2026-04-06T10:00:00.000Z"
+    },
+    {
+      "id": "sch_21",
+      "studentId": "stu_6",
+      "name": "Environmental Achievement Grant 21",
+      "provider": "Future Scholars Fund",
+      "amount": 3500,
+      "currency": "USD",
+      "status": "Researching",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2025-08-13T10:00:00.000Z",
+          "note": "Opportunity identified"
+        }
+      ],
+      "deadline": "2026-08-18T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter",
+        "Essay"
+      ],
+      "essayRequired": true,
+      "essaySubmitted": true,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "createdAt": "2025-08-13T10:00:00.000Z",
+      "updatedAt": "2026-04-04T10:00:00.000Z"
+    },
+    {
+      "id": "sch_22",
+      "studentId": "stu_7",
+      "name": "Mechanical Achievement Grant 22",
+      "provider": "Bridge to Success Foundation",
+      "amount": 4250,
+      "currency": "USD",
+      "status": "Applied",
+      "statusHistory": [
+        {
+          "status": "Researching",
+          "changedAt": "2025-08-02T10:00:00.000Z",
+          "note": "Opportunity identified"
+        },
+        {
+          "status": "Applied",
+          "changedAt": "2026-04-07T10:00:00.000Z",
+          "note": "Status updated to Applied"
+        }
+      ],
+      "deadline": "2026-08-24T10:00:00.000Z",
+      "requirements": [
+        "Transcript",
+        "Recommendation Letter"
+      ],
+      "essayRequired": false,
+      "notes": "Counselor tracking this application with monthly check-ins.",
+      "dateApplied": "2026-03-30T10:00:00.000Z",
+      "createdAt": "2025-08-02T10:00:00.000Z",
+      "updatedAt": "2026-04-10T10:00:00.000Z"
+    }
+  ],
+  "meetings": [
+    {
+      "id": "mtg_1",
+      "studentId": "stu_1",
+      "mentorId": "mnt_1",
+      "date": "2026-03-21T10:00:00.000Z",
+      "duration": 30,
+      "notes": "Rescheduled due to conflict with exam week.",
+      "actionItems": [
+        "Pick a new slot before Friday"
+      ],
+      "status": "Cancelled",
+      "createdAt": "2026-03-06T10:00:00.000Z",
+      "updatedAt": "2026-03-22T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_3",
+      "studentId": "stu_3",
+      "mentorId": "mnt_3",
+      "date": "2026-03-25T10:00:00.000Z",
+      "duration": 60,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume"
+      ],
+      "status": "Completed",
+      "createdAt": "2026-02-26T10:00:00.000Z",
+      "updatedAt": "2026-03-26T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_4",
+      "studentId": "stu_4",
+      "mentorId": "mnt_4",
+      "date": "2026-03-27T10:00:00.000Z",
+      "duration": 75,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume",
+        "Share GPA progress reflection"
+      ],
+      "status": "Completed",
+      "createdAt": "2026-02-22T10:00:00.000Z",
+      "updatedAt": "2026-03-28T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_6",
+      "studentId": "stu_6",
+      "mentorId": "mnt_1",
+      "date": "2026-03-31T10:00:00.000Z",
+      "duration": 45,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume"
+      ],
+      "status": "Scheduled",
+      "createdAt": "2026-02-14T10:00:00.000Z",
+      "updatedAt": "2026-03-31T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_7",
+      "studentId": "stu_7",
+      "mentorId": "mnt_2",
+      "date": "2026-04-02T10:00:00.000Z",
+      "duration": 60,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume",
+        "Share GPA progress reflection"
+      ],
+      "status": "Completed",
+      "createdAt": "2026-02-10T10:00:00.000Z",
+      "updatedAt": "2026-04-03T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_8",
+      "studentId": "stu_8",
+      "mentorId": "mnt_3",
+      "date": "2026-04-04T10:00:00.000Z",
+      "duration": 75,
+      "notes": "Rescheduled due to conflict with exam week.",
+      "actionItems": [
+        "Pick a new slot before Friday"
+      ],
+      "status": "Cancelled",
+      "createdAt": "2026-02-06T10:00:00.000Z",
+      "updatedAt": "2026-04-05T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_9",
+      "studentId": "stu_9",
+      "mentorId": "mnt_4",
+      "date": "2026-04-06T10:00:00.000Z",
+      "duration": 30,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume"
+      ],
+      "status": "Completed",
+      "createdAt": "2026-02-02T10:00:00.000Z",
+      "updatedAt": "2026-04-07T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_10",
+      "studentId": "stu_10",
+      "mentorId": "mnt_5",
+      "date": "2026-04-08T10:00:00.000Z",
+      "duration": 45,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume",
+        "Share GPA progress reflection"
+      ],
+      "status": "Completed",
+      "createdAt": "2026-01-29T10:00:00.000Z",
+      "updatedAt": "2026-04-09T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_11",
+      "studentId": "stu_11",
+      "mentorId": "mnt_1",
+      "date": "2026-04-10T10:00:00.000Z",
+      "duration": 60,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume"
+      ],
+      "status": "Scheduled",
+      "createdAt": "2026-01-25T10:00:00.000Z",
+      "updatedAt": "2026-04-10T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_12",
+      "studentId": "stu_12",
+      "mentorId": "mnt_2",
+      "date": "2026-04-12T10:00:00.000Z",
+      "duration": 75,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume"
+      ],
+      "status": "Completed",
+      "createdAt": "2026-01-21T10:00:00.000Z",
+      "updatedAt": "2026-04-13T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_13",
+      "studentId": "stu_13",
+      "mentorId": "mnt_3",
+      "date": "2026-04-14T10:00:00.000Z",
+      "duration": 30,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume",
+        "Share GPA progress reflection"
+      ],
+      "status": "Completed",
+      "createdAt": "2026-01-17T10:00:00.000Z",
+      "updatedAt": "2026-04-15T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_14",
+      "studentId": "stu_14",
+      "mentorId": "mnt_4",
+      "date": "2026-04-16T10:00:00.000Z",
+      "duration": 45,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume"
+      ],
+      "status": "Completed",
+      "createdAt": "2026-01-13T10:00:00.000Z",
+      "updatedAt": "2026-04-17T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_15",
+      "studentId": "stu_15",
+      "mentorId": "mnt_5",
+      "date": "2026-04-18T10:00:00.000Z",
+      "duration": 60,
+      "notes": "Rescheduled due to conflict with exam week.",
+      "actionItems": [
+        "Pick a new slot before Friday"
+      ],
+      "status": "Cancelled",
+      "createdAt": "2026-01-09T10:00:00.000Z",
+      "updatedAt": "2026-04-19T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_16",
+      "studentId": "stu_1",
+      "mentorId": "mnt_1",
+      "date": "2026-04-20T10:00:00.000Z",
+      "duration": 75,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume",
+        "Share GPA progress reflection"
+      ],
+      "status": "Scheduled",
+      "createdAt": "2026-01-05T10:00:00.000Z",
+      "updatedAt": "2026-04-20T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_18",
+      "studentId": "stu_3",
+      "mentorId": "mnt_3",
+      "date": "2026-04-24T10:00:00.000Z",
+      "duration": 45,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume"
+      ],
+      "status": "Completed",
+      "createdAt": "2025-12-28T10:00:00.000Z",
+      "updatedAt": "2026-04-25T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_19",
+      "studentId": "stu_4",
+      "mentorId": "mnt_4",
+      "date": "2026-04-26T10:00:00.000Z",
+      "duration": 60,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume",
+        "Share GPA progress reflection"
+      ],
+      "status": "Completed",
+      "createdAt": "2025-12-24T10:00:00.000Z",
+      "updatedAt": "2026-04-27T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_21",
+      "studentId": "stu_6",
+      "mentorId": "mnt_1",
+      "date": "2026-04-30T10:00:00.000Z",
+      "duration": 30,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume"
+      ],
+      "status": "Scheduled",
+      "createdAt": "2025-12-16T10:00:00.000Z",
+      "updatedAt": "2026-04-30T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_22",
+      "studentId": "stu_7",
+      "mentorId": "mnt_2",
+      "date": "2026-05-02T10:00:00.000Z",
+      "duration": 45,
+      "notes": "Rescheduled due to conflict with exam week.",
+      "actionItems": [
+        "Pick a new slot before Friday"
+      ],
+      "status": "Cancelled",
+      "createdAt": "2025-12-12T10:00:00.000Z",
+      "updatedAt": "2026-05-03T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_23",
+      "studentId": "stu_8",
+      "mentorId": "mnt_3",
+      "date": "2026-05-04T10:00:00.000Z",
+      "duration": 60,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume"
+      ],
+      "status": "Completed",
+      "createdAt": "2025-12-08T10:00:00.000Z",
+      "updatedAt": "2026-05-05T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_24",
+      "studentId": "stu_9",
+      "mentorId": "mnt_4",
+      "date": "2026-05-06T10:00:00.000Z",
+      "duration": 75,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume"
+      ],
+      "status": "Completed",
+      "createdAt": "2025-12-04T10:00:00.000Z",
+      "updatedAt": "2026-05-07T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_25",
+      "studentId": "stu_10",
+      "mentorId": "mnt_5",
+      "date": "2026-05-08T10:00:00.000Z",
+      "duration": 30,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume",
+        "Share GPA progress reflection"
+      ],
+      "status": "Completed",
+      "createdAt": "2025-11-30T10:00:00.000Z",
+      "updatedAt": "2026-05-09T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_26",
+      "studentId": "stu_11",
+      "mentorId": "mnt_1",
+      "date": "2026-05-10T10:00:00.000Z",
+      "duration": 45,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume"
+      ],
+      "status": "Scheduled",
+      "createdAt": "2025-11-26T10:00:00.000Z",
+      "updatedAt": "2026-05-10T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_27",
+      "studentId": "stu_12",
+      "mentorId": "mnt_2",
+      "date": "2026-05-12T10:00:00.000Z",
+      "duration": 60,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume"
+      ],
+      "status": "Completed",
+      "createdAt": "2025-11-22T10:00:00.000Z",
+      "updatedAt": "2026-05-13T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_28",
+      "studentId": "stu_13",
+      "mentorId": "mnt_3",
+      "date": "2026-05-14T10:00:00.000Z",
+      "duration": 75,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume",
+        "Share GPA progress reflection"
+      ],
+      "status": "Completed",
+      "createdAt": "2025-11-18T10:00:00.000Z",
+      "updatedAt": "2026-05-15T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_29",
+      "studentId": "stu_14",
+      "mentorId": "mnt_4",
+      "date": "2026-05-16T10:00:00.000Z",
+      "duration": 30,
+      "notes": "Rescheduled due to conflict with exam week.",
+      "actionItems": [
+        "Pick a new slot before Friday"
+      ],
+      "status": "Cancelled",
+      "createdAt": "2025-11-14T10:00:00.000Z",
+      "updatedAt": "2026-05-17T10:00:00.000Z"
+    },
+    {
+      "id": "mtg_30",
+      "studentId": "stu_15",
+      "mentorId": "mnt_5",
+      "date": "2026-05-18T10:00:00.000Z",
+      "duration": 45,
+      "notes": "Discussed study rhythm, scholarship deadlines, and next month goals.",
+      "actionItems": [
+        "Update scholarship tracker",
+        "Upload revised resume"
+      ],
+      "status": "Completed",
+      "createdAt": "2025-11-10T10:00:00.000Z",
+      "updatedAt": "2026-05-19T10:00:00.000Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "log_2IGqNsQHig",
+      "entityType": "student",
+      "entityId": "stu_wzwcwIkx1e",
+      "action": "student_created",
+      "details": {
+        "enrollmentStatus": "Part-time",
+        "createdAt": "2026-04-18T19:06:23.569Z"
+      },
+      "timestamp": "2026-04-18T19:06:23.570Z"
+    },
+    {
+      "id": "log_i2X1GI_BE1",
+      "entityType": "student",
+      "entityId": "stu_wzwcwIkx1e",
+      "action": "student_updated",
+      "details": {
+        "updatedAt": "2026-04-18T19:06:42.863Z"
+      },
+      "timestamp": "2026-04-18T19:06:42.863Z"
+    },
+    {
+      "id": "log_yPjcqX8nBN",
+      "entityType": "student",
+      "entityId": "stu_wzwcwIkx1e",
+      "action": "student_updated",
+      "details": {
+        "updatedAt": "2026-04-18T19:06:53.883Z"
+      },
+      "timestamp": "2026-04-18T19:06:53.883Z"
+    },
+    {
+      "id": "log_EtJHXTHWSv",
+      "entityType": "student",
+      "entityId": "stu_wzwcwIkx1e",
+      "action": "student_updated",
+      "details": {
+        "updatedAt": "2026-04-18T19:07:07.092Z"
+      },
+      "timestamp": "2026-04-18T19:07:07.092Z"
+    },
+    {
+      "id": "log_i88GKrTDpt",
+      "entityType": "student",
+      "entityId": "stu_lRo9G4Q1tU",
+      "action": "student_created",
+      "details": {
+        "enrollmentStatus": "Part-time",
+        "createdAt": "2026-04-18T19:17:57.525Z"
+      },
+      "timestamp": "2026-04-18T19:17:57.526Z"
+    },
+    {
+      "id": "log_-SV3yvUwsU",
+      "entityType": "student",
+      "entityId": "stu_2",
+      "action": "student_deleted",
+      "details": {
+        "removedScholarships": 2,
+        "removedMeetings": 2
+      },
+      "timestamp": "2026-04-18T19:18:23.956Z"
+    },
+    {
+      "id": "log_fdmoqBBD_3",
+      "entityType": "student",
+      "entityId": "stu_wzwcwIkx1e",
+      "action": "student_deleted",
+      "details": {
+        "removedScholarships": 0,
+        "removedMeetings": 0
+      },
+      "timestamp": "2026-04-18T19:18:39.329Z"
+    },
+    {
+      "id": "log_IZ80YX3umX",
+      "entityType": "student",
+      "entityId": "stu_5",
+      "action": "student_deleted",
+      "details": {
+        "removedScholarships": 2,
+        "removedMeetings": 2
+      },
+      "timestamp": "2026-04-18T19:21:32.409Z"
+    },
+    {
+      "id": "log_uEHGjr_D1F",
+      "entityType": "student",
+      "entityId": "stu_1",
+      "action": "enrollment_status_changed",
+      "details": {
+        "from": "Part-time",
+        "to": "Full-time"
+      },
+      "timestamp": "2026-04-18T19:22:13.881Z"
+    },
+    {
+      "id": "log_LiiuNNgbQj",
+      "entityType": "student",
+      "entityId": "stu_1",
+      "action": "student_updated",
+      "details": {
+        "updatedAt": "2026-04-18T19:22:13.882Z"
+      },
+      "timestamp": "2026-04-18T19:22:13.882Z"
+    }
+  ]
+}

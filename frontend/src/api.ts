@@ -22,6 +22,53 @@ const api = axios.create({
   timeout: 15000,
 });
 
+const extractErrorMessageFromPayload = (payload: unknown): string | null => {
+  if (!payload || typeof payload !== "object") {
+    return null;
+  }
+
+  const record = payload as {
+    message?: unknown;
+    error?: { message?: unknown };
+  };
+
+  if (typeof record.error?.message === "string" && record.error.message.trim().length > 0) {
+    return record.error.message;
+  }
+
+  if (typeof record.message === "string" && record.message.trim().length > 0) {
+    return record.message;
+  }
+
+  return null;
+};
+
+const toApiErrorMessage = (error: unknown): string => {
+  if (axios.isAxiosError(error)) {
+    const payloadMessage = extractErrorMessageFromPayload(error.response?.data);
+    if (payloadMessage) {
+      return payloadMessage;
+    }
+
+    if (error.code === "ECONNABORTED") {
+      return "Request timed out. Please try again.";
+    }
+
+    if (!error.response) {
+      return "Cannot reach API server. Please check your connection and try again.";
+    }
+
+    return `Request failed with status ${error.response.status}`;
+  }
+
+  return error instanceof Error ? error.message : "Request failed";
+};
+
+api.interceptors.response.use(
+  (response) => response,
+  (error: unknown) => Promise.reject(new Error(toApiErrorMessage(error))),
+);
+
 const unwrap = <T>(response: { data: ApiResponse<T> }): T => {
   if (!response.data.success) {
     throw new Error(response.data.error?.message || "Request failed");
@@ -114,6 +161,85 @@ export interface MeetingUpdateInput {
   actionItems?: string[];
   date?: string;
 }
+
+export type ScholarshipRealtimeEventType =
+  | "ready"
+  | "heartbeat"
+  | "scholarship.created"
+  | "scholarship.updated"
+  | "scholarship.deleted";
+
+export interface ScholarshipRealtimeEvent {
+  type: ScholarshipRealtimeEventType;
+  occurredAt: string;
+  scholarshipId?: string;
+  studentId?: string;
+  status?: ScholarshipStatus;
+  previousStatus?: ScholarshipStatus;
+  deadline?: string;
+}
+
+const scholarshipRealtimeEventTypes = new Set<ScholarshipRealtimeEventType>([
+  "ready",
+  "heartbeat",
+  "scholarship.created",
+  "scholarship.updated",
+  "scholarship.deleted",
+]);
+
+const parseScholarshipRealtimeEvent = (rawData: string): ScholarshipRealtimeEvent | null => {
+  try {
+    const parsed = JSON.parse(rawData) as Partial<ScholarshipRealtimeEvent>;
+    if (!parsed || typeof parsed !== "object") return null;
+    if (typeof parsed.type !== "string") return null;
+    if (!scholarshipRealtimeEventTypes.has(parsed.type as ScholarshipRealtimeEventType)) return null;
+    if (typeof parsed.occurredAt !== "string") return null;
+
+    return parsed as ScholarshipRealtimeEvent;
+  } catch {
+    return null;
+  }
+};
+
+export const subscribeToScholarshipEvents = (
+  onEvent: (event: ScholarshipRealtimeEvent) => void,
+  onError?: (event: Event) => void,
+): (() => void) => {
+  const streamUrl = `${baseURL.replace(/\/$/, "")}/api/events/scholarships`;
+  const source = new EventSource(streamUrl);
+
+  const handleIncomingEvent = (rawEvent: Event) => {
+    const event = rawEvent as MessageEvent<string>;
+    const parsed = parseScholarshipRealtimeEvent(event.data);
+    if (!parsed) return;
+    onEvent(parsed);
+  };
+
+  const eventNames: ScholarshipRealtimeEventType[] = [
+    "ready",
+    "heartbeat",
+    "scholarship.created",
+    "scholarship.updated",
+    "scholarship.deleted",
+  ];
+
+  eventNames.forEach((eventName) => {
+    source.addEventListener(eventName, handleIncomingEvent as EventListener);
+  });
+
+  source.onerror = (event) => {
+    if (onError) {
+      onError(event);
+    }
+  };
+
+  return () => {
+    eventNames.forEach((eventName) => {
+      source.removeEventListener(eventName, handleIncomingEvent as EventListener);
+    });
+    source.close();
+  };
+};
 
 export const fetchDashboardSummary = async (): Promise<DashboardSummary> => {
   const response = await api.get<ApiResponse<DashboardSummary>>("/api/dashboard/summary");
