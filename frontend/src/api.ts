@@ -16,7 +16,7 @@ import type {
 } from "./types";
 
 const baseURL =
-  import.meta.env.VITE_API_BASE_URL?.trim() || "http://localhost:4000";
+ import.meta.env.VITE_API_URL;
 
 const api = axios.create({
   baseURL,
