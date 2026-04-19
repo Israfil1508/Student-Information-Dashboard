@@ -2,6 +2,8 @@
 import "dotenv/config";
 import cors from "cors";
 import express, { type NextFunction, type Request, type Response } from "express";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 import { nanoid } from "nanoid";
 import { readDatabase, writeDatabase } from "./config/db.js";
 import { errorMiddleware, notFoundMiddleware } from "./middlewares/error.middleware.js";
@@ -1194,6 +1196,22 @@ app.get(
     sendSuccess(response, logs);
   }),
 );
+
+// Serve frontend static files for production/deployment
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const frontendDistPath = join(__dirname, "../../frontend/dist");
+
+app.use(express.static(frontendDistPath, { maxAge: "1d" }));
+
+// SPA fallback: serve index.html for any unmatched routes
+app.get("*", (_request, response) => {
+  response.sendFile(join(frontendDistPath, "index.html"), (err) => {
+    if (err) {
+      response.status(404).json({ error: "Frontend not found. Build and deploy frontend first." });
+    }
+  });
+});
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
