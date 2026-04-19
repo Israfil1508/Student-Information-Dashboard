@@ -1,3 +1,4 @@
+/* Initial Comment: Student Information Dashboard repository file. */
 import axios from "axios";
 import type {
   AcademicYear,

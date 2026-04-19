@@ -1,3 +1,4 @@
+<!-- Initial Comment: Student Information Dashboard repository file. -->
 # Frontend - Student Information Dashboard
 
 React + TypeScript + Vite frontend for Access to Education.

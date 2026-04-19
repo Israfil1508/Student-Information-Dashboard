@@ -1,3 +1,4 @@
+/* Initial Comment: Student Information Dashboard repository file. */
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import {
