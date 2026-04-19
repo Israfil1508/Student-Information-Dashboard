@@ -16,7 +16,7 @@ import type {
 } from "./types";
 
 const baseURL =
- import.meta.env.VITE_API_URL;
+ import.meta.env.example.VITE_API_URL;
 
 const api = axios.create({
   baseURL,
