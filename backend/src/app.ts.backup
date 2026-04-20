@@ -1,9 +1,10 @@
 /* Initial Comment: Student Information Dashboard repository file. */
 import "dotenv/config";
 import cors from "cors";
-import express from "express";
+import express, { type NextFunction, type Request, type Response } from "express";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
+import { nanoid } from "nanoid";
 import { readDatabase, writeDatabase } from "./config/db.js";
 import { errorMiddleware, notFoundMiddleware } from "./middlewares/error.middleware.js";
 import { sendCreated, sendError, sendSuccess } from "./utils/apiResponse.js";
@@ -11,32 +12,15 @@ import { meetingRoutes } from "./routes/meeting.routes.js";
 import { mentorRoutes } from "./routes/mentor.routes.js";
 import { scholarshipRoutes } from "./routes/scholarship.routes.js";
 import { studentRoutes } from "./routes/student.routes.js";
-
-// Import extracted modules
-import { enrollmentTransitions, scholarshipTransitions, courseCatalogByMajor } from "./constants.js";
-import {
-  asyncHandler,
-  addAuditLog,
-  buildDefaultCurrentCourses,
-  canTransition,
-  calculateDaysUntilDeadline,
-  findStudent,
-  findScholarship,
-  findMeeting,
-  getRouteParam,
-  nowIso,
-  toIso,
-  toGpaHistoryTerm,
-  withDeadlineTracking,
-} from "./helpers.js";
-import {
-  scholarshipEventClients,
-  toSseChunk,
-  broadcastScholarshipEvent,
-  type ScholarshipRealtimeEventPayload,
-} from "./events.js";
-
-// Import validators
+import type {
+  Database,
+  EnrollmentStatus,
+  Meeting,
+  Scholarship,
+  ScholarshipWithDeadlineTracking,
+  ScholarshipStatus,
+  Student,
+} from "./types.js";
 import {
   meetingCreateSchema,
   meetingUpdateSchema,
@@ -47,13 +31,8 @@ import {
   studentUpdateSchema,
 } from "./middlewares/validate.middleware.js";
 
-// Import types
-import type { ScholarshipStatus } from "./types.js";
-import { nanoid } from "nanoid";
-
 export const app = express();
 
-// CORS Configuration
 const configuredOrigins = (process.env.CORS_ORIGIN ?? "http://localhost:5176")
   .split(",")
   .map((origin) => origin.trim())
@@ -66,19 +45,11 @@ app.use(
     origin: allowedOrigins,
   }),
 );
-
-// Middleware
 app.use(express.json({ limit: "1mb" }));
-
-// Route Mounting
 app.use("/api/students", studentRoutes);
 app.use("/api/scholarships", scholarshipRoutes);
 app.use("/api/mentors", mentorRoutes);
 app.use("/api/meetings", meetingRoutes);
-
-// ============================================================================
-// Core Endpoints
-// ============================================================================
 
 app.get("/", (_request, response) => {
   sendSuccess(
@@ -91,6 +62,210 @@ app.get("/", (_request, response) => {
     "API is running. Use /api/* endpoints.",
   );
 });
+
+const enrollmentTransitions: Record<EnrollmentStatus, EnrollmentStatus[]> = {
+  "Full-time": ["Part-time", "Leave of Absence", "Graduated"],
+  "Part-time": ["Full-time", "Leave of Absence", "Graduated"],
+  "Leave of Absence": ["Full-time", "Part-time"],
+  Graduated: [],
+};
+
+const scholarshipTransitions: Record<ScholarshipStatus, ScholarshipStatus[]> = {
+  Researching: ["Applied", "Rejected"],
+  Applied: ["Interview", "Awarded", "Rejected"],
+  Interview: ["Awarded", "Rejected"],
+  Awarded: [],
+  Rejected: [],
+};
+
+const DEADLINE_DUE_SOON_DAYS = 21;
+const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+const GPA_DELTA_TOLERANCE = 0.01;
+
+const toIso = (value: string): string => new Date(value).toISOString();
+const nowIso = (): string => new Date().toISOString();
+const toGpaHistoryTerm = (isoTimestamp: string): string => `Update ${isoTimestamp.slice(0, 7)}`;
+
+const courseCatalogByMajor: Record<string, string[]> = {
+  "Computer Science": [
+    "Data Structures",
+    "Operating Systems",
+    "Database Systems",
+    "Software Engineering",
+    "Web Development",
+  ],
+  "Electrical Engineering": [
+    "Circuit Analysis",
+    "Signals and Systems",
+    "Digital Logic",
+    "Power Electronics",
+    "Control Systems",
+  ],
+  "Public Health": [
+    "Epidemiology",
+    "Biostatistics",
+    "Health Policy",
+    "Community Health",
+    "Global Health",
+  ],
+  "Business Administration": [
+    "Managerial Accounting",
+    "Organizational Behavior",
+    "Business Analytics",
+    "Strategic Management",
+    "Marketing Management",
+  ],
+  Economics: [
+    "Microeconomics",
+    "Macroeconomics",
+    "Econometrics",
+    "Development Economics",
+    "Public Finance",
+  ],
+  "Environmental Science": [
+    "Environmental Chemistry",
+    "Climate Science",
+    "Sustainability Planning",
+    "Conservation Biology",
+    "Environmental Policy",
+  ],
+  "Mechanical Engineering": [
+    "Thermodynamics",
+    "Fluid Mechanics",
+    "Mechanics of Materials",
+    "Machine Design",
+    "Manufacturing Processes",
+  ],
+  "Data Science": [
+    "Applied Statistics",
+    "Machine Learning",
+    "Data Visualization",
+    "Data Ethics",
+    "Big Data Systems",
+  ],
+};
+
+const buildDefaultCurrentCourses = (major: string): string[] => {
+  const catalog = courseCatalogByMajor[major] ?? ["General Studies Seminar"];
+  return catalog.slice(0, 4);
+};
+
+type ScholarshipRealtimeEventName =
+  | "ready"
+  | "heartbeat"
+  | "scholarship.created"
+  | "scholarship.updated"
+  | "scholarship.deleted";
+
+type ScholarshipRealtimeEventPayload = {
+  type: ScholarshipRealtimeEventName;
+  occurredAt: string;
+  scholarshipId?: string;
+  studentId?: string;
+  status?: ScholarshipStatus;
+  previousStatus?: ScholarshipStatus;
+  deadline?: string;
+};
+
+const scholarshipEventClients = new Set<Response>();
+
+const toSseChunk = (
+  eventName: ScholarshipRealtimeEventName,
+  payload: ScholarshipRealtimeEventPayload,
+): string => {
+  return `event: ${eventName}\ndata: ${JSON.stringify(payload)}\n\n`;
+};
+
+const broadcastScholarshipEvent = (
+  eventName: Exclude<ScholarshipRealtimeEventName, "ready" | "heartbeat">,
+  payload: Omit<ScholarshipRealtimeEventPayload, "type" | "occurredAt">,
+): void => {
+  if (scholarshipEventClients.size === 0) return;
+
+  const eventPayload: ScholarshipRealtimeEventPayload = {
+    type: eventName,
+    occurredAt: nowIso(),
+    ...payload,
+  };
+  const chunk = toSseChunk(eventName, eventPayload);
+
+  scholarshipEventClients.forEach((client) => {
+    client.write(chunk);
+  });
+};
+
+const getRouteParam = (request: Request, key: string): string | null => {
+  const value = request.params[key];
+  return typeof value === "string" ? value : null;
+};
+
+const addAuditLog = (
+  database: Database,
+  entityType: "student" | "scholarship" | "meeting" | "mentor-assignment",
+  entityId: string,
+  action: string,
+  details?: Record<string, unknown>,
+): void => {
+  database.auditLogs.push({
+    id: `log_${nanoid(10)}`,
+    entityType,
+    entityId,
+    action,
+    details,
+    timestamp: nowIso(),
+  });
+};
+
+const canTransition = <TStatus extends string>(
+  from: TStatus,
+  to: TStatus,
+  allowedTransitions: Record<TStatus, TStatus[]>,
+): boolean => from === to || allowedTransitions[from].includes(to);
+
+const toUtcDayStart = (value: Date): number =>
+  Date.UTC(value.getUTCFullYear(), value.getUTCMonth(), value.getUTCDate());
+
+const calculateDaysUntilDeadline = (deadlineIso: string, referenceDate = new Date()): number => {
+  const deadline = new Date(deadlineIso);
+  const difference = toUtcDayStart(deadline) - toUtcDayStart(referenceDate);
+  return Math.floor(difference / MILLISECONDS_PER_DAY);
+};
+
+const withDeadlineTracking = (
+  scholarship: Scholarship,
+  referenceDate = new Date(),
+): ScholarshipWithDeadlineTracking => {
+  const daysUntilDeadline = calculateDaysUntilDeadline(scholarship.deadline, referenceDate);
+
+  return {
+    ...scholarship,
+    deadlineTracking: {
+      daysUntilDeadline,
+      isDueSoon: daysUntilDeadline >= 0 && daysUntilDeadline <= DEADLINE_DUE_SOON_DAYS,
+      isOverdue: daysUntilDeadline < 0,
+    },
+  };
+};
+
+const findStudent = (database: Database, studentId: string): Student | undefined => {
+  return database.students.find((student) => student.id === studentId);
+};
+
+const findScholarship = (database: Database, scholarshipId: string): Scholarship | undefined => {
+  return database.scholarships.find((scholarship) => scholarship.id === scholarshipId);
+};
+
+const findMeeting = (database: Database, meetingId: string): Meeting | undefined => {
+  return database.meetings.find((meeting) => meeting.id === meetingId);
+};
+
+const asyncHandler = (
+  handler: (request: Request, response: Response, next: NextFunction) => Promise<void>,
+) => {
+  return (request: Request, response: Response, next: NextFunction) => {
+    handler(request, response, next).catch(next);
+  };
+};
 
 app.get(
   "/api/health",
@@ -109,10 +284,6 @@ app.get(
     });
   }),
 );
-
-// ============================================================================
-// SSE Events Endpoint
-// ============================================================================
 
 app.get("/api/events/scholarships", (request, response) => {
   response.setHeader("Content-Type", "text/event-stream");
@@ -143,10 +314,6 @@ app.get("/api/events/scholarships", (request, response) => {
     response.end();
   });
 });
-
-// ============================================================================
-// Dashboard Summary Endpoint
-// ============================================================================
 
 app.get(
   "/api/dashboard/summary",
@@ -193,10 +360,6 @@ app.get(
     });
   }),
 );
-
-// ============================================================================
-// Student Directory & CRUD Endpoints
-// ============================================================================
 
 app.get(
   "/api/students",
@@ -300,7 +463,7 @@ app.get(
     );
     const currentCourses = Array.isArray(student.currentCourses)
       ? student.currentCourses
-      : buildDefaultCurrentCourses(student.major, courseCatalogByMajor);
+      : buildDefaultCurrentCourses(student.major);
     const studentWithCourses = Array.isArray(student.currentCourses)
       ? student
       : { ...student, currentCourses };
@@ -359,7 +522,7 @@ app.post(
     const timestamp = nowIso();
     const studentId = `stu_${nanoid(10)}`;
 
-    const student = {
+    const student: Student = {
       id: studentId,
       firstName: payload.firstName,
       lastName: payload.lastName,
@@ -371,7 +534,7 @@ app.post(
       enrollmentStatus: payload.enrollmentStatus,
       creditsCompleted: payload.creditsCompleted,
       creditsRequired: payload.creditsRequired,
-      currentCourses: payload.currentCourses ?? buildDefaultCurrentCourses(payload.major, courseCatalogByMajor),
+      currentCourses: payload.currentCourses ?? buildDefaultCurrentCourses(payload.major),
       expectedGraduation: payload.expectedGraduation,
       demographics: payload.demographics,
       assignedMentorId: payload.assignedMentorId ?? null,
@@ -487,6 +650,21 @@ app.put(
         gpa: Number(entry.gpa.toFixed(2)),
         recordedAt: toIso(entry.recordedAt),
       }));
+    } else if (payload.gpa !== undefined && Math.abs(student.gpa - nextGpa) > GPA_DELTA_TOLERANCE) {
+      const recordedAt = nowIso();
+      const existingHistory = Array.isArray(student.gpaHistory) ? student.gpaHistory : [];
+      const latestEntry = existingHistory[existingHistory.length - 1];
+
+      if (!latestEntry || Math.abs(latestEntry.gpa - nextGpa) > GPA_DELTA_TOLERANCE) {
+        student.gpaHistory = [
+          ...existingHistory,
+          {
+            term: toGpaHistoryTerm(recordedAt),
+            gpa: nextGpa,
+            recordedAt,
+          },
+        ];
+      }
     }
 
     student.firstName = payload.firstName ?? student.firstName;
@@ -497,11 +675,13 @@ app.put(
     student.major = payload.major ?? student.major;
     student.gpa = nextGpa;
     student.enrollmentStatus = payload.enrollmentStatus ?? student.enrollmentStatus;
-    student.creditsCompleted = nextCreditsCompleted;
-    student.creditsRequired = nextCreditsRequired;
+    student.creditsCompleted = payload.creditsCompleted ?? student.creditsCompleted;
+    student.creditsRequired = payload.creditsRequired ?? student.creditsRequired;
     student.currentCourses =
-      payload.currentCourses ?? student.currentCourses ?? buildDefaultCurrentCourses(student.major, courseCatalogByMajor);
-    student.expectedGraduation = payload.expectedGraduation ?? student.expectedGraduation;
+      payload.currentCourses ?? student.currentCourses ?? buildDefaultCurrentCourses(student.major);
+    student.expectedGraduation = payload.expectedGraduation
+      ? payload.expectedGraduation
+      : student.expectedGraduation;
     student.demographics = payload.demographics ?? student.demographics;
     student.assignedMentorId = payload.assignedMentorId ?? student.assignedMentorId;
     student.updatedAt = nowIso();
@@ -562,10 +742,6 @@ app.delete(
     }, "Student deleted");
   }),
 );
-
-// ============================================================================
-// Mentor Endpoints
-// ============================================================================
 
 app.get(
   "/api/mentors",
@@ -665,10 +841,6 @@ app.put(
   }),
 );
 
-// ============================================================================
-// Scholarship Endpoints
-// ============================================================================
-
 app.get(
   "/api/students/:studentId/scholarships",
   asyncHandler(async (request, response) => {
@@ -717,7 +889,7 @@ app.post(
     }
 
     const timestamp = nowIso();
-    const scholarship = {
+    const scholarship: Scholarship = {
       id: `sch_${nanoid(10)}`,
       studentId,
       name: payload.name,
@@ -780,6 +952,7 @@ app.put(
     }
 
     const previousStatus = scholarship.status;
+
     const nextDeadline = payload.deadline ? toIso(payload.deadline) : scholarship.deadline;
     const nextDateApplied = payload.dateApplied ? toIso(payload.dateApplied) : scholarship.dateApplied;
 
@@ -842,10 +1015,6 @@ app.put(
     sendSuccess(response, withDeadlineTracking(scholarship), "Scholarship updated");
   }),
 );
-
-// ============================================================================
-// Meeting Endpoints
-// ============================================================================
 
 app.get(
   "/api/students/:studentId/meetings",
@@ -915,7 +1084,7 @@ app.post(
     }
 
     const timestamp = nowIso();
-    const meeting = {
+    const meeting: Meeting = {
       id: `mtg_${nanoid(10)}`,
       studentId,
       mentorId,
@@ -1013,10 +1182,6 @@ app.delete(
   }),
 );
 
-// ============================================================================
-// Audit Logs Endpoint
-// ============================================================================
-
 app.get(
   "/api/audit-logs",
   asyncHandler(async (request, response) => {
@@ -1032,16 +1197,14 @@ app.get(
   }),
 );
 
-// ============================================================================
-// Static File Serving & SPA Fallback
-// ============================================================================
-
+// Serve frontend static files for production/deployment
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const frontendDistPath = join(__dirname, "../../frontend/dist");
 
 app.use(express.static(frontendDistPath, { maxAge: "1d" }));
 
+// SPA fallback: serve index.html for any unmatched routes
 app.use((_request, response) => {
   response.sendFile(join(frontendDistPath, "index.html"), (err) => {
     if (err) {
@@ -1049,10 +1212,6 @@ app.use((_request, response) => {
     }
   });
 });
-
-// ============================================================================
-// Error Handling
-// ============================================================================
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
